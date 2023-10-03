@@ -1,21 +1,17 @@
-from langchain.vectorstores import Chroma
-from langchain.text_splitter import CharacterTextSplitter
-from langchain.llms import GPT4All
-from langchain.chains import ConversationalRetrievalChain
-from langchain.document_loaders import WebBaseLoader, PyPDFLoader
-
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-
-from langchain.embeddings import GPT4AllEmbeddings
-
-from langchain.memory import ConversationBufferMemory
-
-from langchain.chains import ConversationalRetrievalChain
-
 import sys
+import argparse
+
 import colorama
+from langchain.chains import ConversationalRetrievalChain
+from langchain.document_loaders import PyPDFLoader
+from langchain.embeddings import GPT4AllEmbeddings
+from langchain.llms import GPT4All
+from langchain.memory import ConversationBufferMemory
+from langchain.text_splitter import CharacterTextSplitter, RecursiveCharacterTextSplitter
+from langchain.vectorstores import Chroma
 
 from local_config import MODEL_PATH
+
 
 def main():
 
