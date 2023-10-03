@@ -1,0 +1,19 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+gpt4all = "*"
+chromadb = "*"
+langchainhub = "*"
+langchain = "*"
+bs4 = "*"
+pypdf = "*"
+colorama = "*"
+
+[dev-packages]
+ipykernel = "*"
+
+[requires]
+python_version = "3.9"
