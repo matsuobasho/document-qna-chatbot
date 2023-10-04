@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "05fb7a67e402c9b6e04a326737421143016462fa9df512e7b5240b9d2324a706"
+            "sha256": "4a197b7608d457306eecd6426ee1257b4874d609fedacbe9ea720aeb169fc1e8"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -1086,13 +1086,48 @@
             "markers": "python_version >= '3.7'",
             "version": "==2.10.1"
         },
-        "pypdf": {
+        "pymupdf": {
             "hashes": [
-                "sha256:6e000281fd0f4cd32e6f1e75b05af0b6c0fbbd9777fa9a8e9d86e34cda65419d",
-                "sha256:d132953be1e2af7b115fbfd445459fdfc601a845ca12379160e1b6afaa1fef2c"
+                "sha256:02c38374a2361699318b71e4677d21425a601036c2130305cc140c02bc2b7e22",
+                "sha256:1aebdf3e584b33db06f0d0803d2bb17102784f054f17d06ef510960f28798708",
+                "sha256:1d4031e0fffa1a55d42451ae3e0a3bbe0535acffd5caa0d636ca5f77e21149aa",
+                "sha256:27576c523348df023ce703113dd5cf3b8515edc123a1b170acb32cf53fb984a3",
+                "sha256:2f29f000fc29126e90be9c3192fe7ba9b23867fdda3d6133aa0c38851a96cfbd",
+                "sha256:31941d7b6beb13fce2ca33763985303da25fbb29d202a89def555572f917789c",
+                "sha256:3baf895b414220ebf302bbb3d8d08671bcb5e1173a026109f91e6801809134ed",
+                "sha256:41f82394b5d44d12271b431968841d1e262e10d85ed580ee12cdb2c7b3d31a0b",
+                "sha256:4fd1aa96570f97b38d946632187344d2b9912bb8aa725797feb059c604045d48",
+                "sha256:6e05947e9dd080c0ba66500461f9cdd052d3235893a33221626491bd13a1c3fa",
+                "sha256:756bba7224d12f754afa9375577e61a9eae0213e16d8b98f0bbab43c3db92b71",
+                "sha256:817edc2c98040b9bce79b91c0fe8a8b1c9ba9ca3d504426d49cfebccd40c7b64",
+                "sha256:8cf61710d4bfd625bac3091341daa42ef0175d7ae9580d692b164b5b35d6213f",
+                "sha256:8ddd889d2cbc0fa48eca888b7abf3849ad9e3b695ff41176e612c5eecbd6e2d3",
+                "sha256:94d6d0c20149fe8d03beb1566689dd2923966cf4a80afb26dba2c1d862fb40c7",
+                "sha256:a100f55d8c3278f844db56c9a6cf4e5cc340d88bdba7d02b597a6e6552974388",
+                "sha256:a42d51f8e8e160293b70c99874901f7b50df0f181b59f9c19abd18f008467088",
+                "sha256:b4c7ecce30327603657ed1cbf08ce8cee75661679a626680d53299af42adc21a",
+                "sha256:b4c9e7036564c2881ca07be3b7001f2c0910dde1e46e9fae58f9be7bc3cc04c2",
+                "sha256:c51b92da8eeb62bbd4e3087bd2116cb330f4e1b001b61c0796310420a025dbf4",
+                "sha256:ca35f3b163c3f92a6c22b45ec31b3b850c32b3b76f31452e05781398c94e5ad5",
+                "sha256:cb5c43c06546e686fb5ce6438b5f8902ddae8861579dec2dd5ac92b91782cf89",
+                "sha256:d77144b6434559929094f94de4174a12a2a0b540d88565dfaa18ea36f457bcca",
+                "sha256:d9024fb05dbb565fd4d3a7824a08a58f0363306d855ab9c63883343141757af4",
+                "sha256:f078715f50cc36f6ff787eb1d9bb243f903298ca1098a42107f36948d7039f22"
             ],
             "index": "pypi",
-            "version": "==3.16.2"
+            "version": "==1.23.4"
+        },
+        "pymupdfb": {
+            "hashes": [
+                "sha256:2a2b81ac348ec123bfd72336a590399f8b0035a3052c1cf5cc2401ca7a4905e9",
+                "sha256:5b05c643210eae8050d552188efab2cd68595ad75b5879a550e11af88e8bff05",
+                "sha256:6c287b9ce5ed397043c6e13df19640c94a348e9edc8012d9a7b001c69ba30ca9",
+                "sha256:8703e3a8efebd83814e124d0fc3a082de2d2def329b63fca1065001e6a2deb49",
+                "sha256:89d88069cb8deb100ddcf56e1feefc7cff93ff791260325ed84551f96d3abd9f",
+                "sha256:924f3f2229d232c965705d120b3ff38bbc37459af9d0e798b582950f875bee92"
+            ],
+            "markers": "python_version >= '3.8'",
+            "version": "==1.23.3"
         },
         "pypika": {
             "hashes": [
@@ -2012,11 +2047,11 @@
         },
         "traitlets": {
             "hashes": [
-                "sha256:2351372ff87fc912c483d1cb6aa466573d5f44eb4ed9e602c8d0ac012c9daece",
-                "sha256:813584bb569ac4a098c64ca494e8a3bbfef42e37c36a6132bca554aabd111480"
+                "sha256:7564b5bf8d38c40fa45498072bf4dc5e8346eb087bbf1e2ae2d8774f6a0f078e",
+                "sha256:98277f247f18b2c5cabaf4af369187754f4fb0e85911d473f72329db8a7f4fae"
             ],
             "markers": "python_version >= '3.8'",
-            "version": "==5.11.1"
+            "version": "==5.11.2"
         },
         "typing-extensions": {
             "hashes": [

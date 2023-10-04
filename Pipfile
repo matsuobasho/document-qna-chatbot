@@ -9,8 +9,8 @@ chromadb = "*"
 langchainhub = "*"
 langchain = "*"
 bs4 = "*"
-pypdf = "*"
 colorama = "*"
+pymupdf = "*"
 
 [dev-packages]
 ipykernel = "*"
