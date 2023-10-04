@@ -9,7 +9,7 @@ from langchain.document_loaders.pdf import PyMuPDFLoader
 from langchain.embeddings import GPT4AllEmbeddings
 from langchain.llms import GPT4All
 from langchain.memory import ConversationBufferMemory
-from langchain.text_splitter import CharacterTextSplitter, RecursiveCharacterTextSplitter
+from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.vectorstores import Chroma
 
 from local_config import MODEL_PATH
@@ -33,7 +33,7 @@ def main(args):
     pages = pdf_loader.load_and_split()
 
     # Split docs
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=0)
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1500, chunk_overlap=0)
     all_splits = text_splitter.split_documents(pages)
 
     # Create embeddings
