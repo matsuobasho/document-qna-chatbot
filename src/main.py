@@ -1,9 +1,11 @@
 import sys
 import argparse
+from pathlib import Path
 
 import colorama
 from langchain.chains import ConversationalRetrievalChain
-from langchain.document_loaders import PyPDFLoader
+from langchain.document_loaders import DirectoryLoader
+from langchain.document_loaders.pdf import PyMuPDFLoader
 from langchain.embeddings import GPT4AllEmbeddings
 from langchain.llms import GPT4All
 from langchain.memory import ConversationBufferMemory
@@ -12,19 +14,29 @@ from langchain.vectorstores import Chroma
 
 from local_config import MODEL_PATH
 
+def create_directory_loader(directory_path):
+    return DirectoryLoader(
+        path=directory_path,
+        glob=f"**/*pdf",
+        loader_cls=PyMuPDFLoader,
+    )
 
-def main():
+def main(args):
 
     colorama.init()
 
-    # Get document
-    loader = PyPDFLoader("./docs/NL2 code.pdf")
-    pages = loader.load_and_split()
+    path_fmt = Path(args.directory).resolve()
 
-    # Create embeddings
+    # Get documents
+    #https://github.com/langchain-ai/langchain/issues/9749
+    pdf_loader = create_directory_loader(path_fmt)
+    pages = pdf_loader.load_and_split()
+
+    # Split docs
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=0)
     all_splits = text_splitter.split_documents(pages)
 
+    # Create embeddings
     vectorstore = Chroma.from_documents(documents=all_splits, embedding=GPT4AllEmbeddings())
 
     # Create memory object
@@ -46,5 +58,14 @@ def main():
 
         print(colorama.Fore.BLUE + response['answer'])
 
+def parse_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--directory')
+    args = parser.parse_args()
+    return args
+
 if __name__=="__main__":
-    main()
+
+    args = parse_args()
+
+    main(args)
