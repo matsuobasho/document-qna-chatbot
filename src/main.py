@@ -5,6 +5,7 @@ from pathlib import Path
 import colorama
 from langchain.chains import ConversationalRetrievalChain
 from langchain.document_loaders import DirectoryLoader
+from langchain.document_loaders.csv_loader import CSVLoader
 from langchain.document_loaders.pdf import PyMuPDFLoader
 from langchain.embeddings import GPT4AllEmbeddings
 from langchain.llms import GPT4All
@@ -14,11 +15,24 @@ from langchain.vectorstores import Chroma
 
 from local_config import MODEL_PATH
 
-def create_directory_loader(directory_path):
+def create_directory_loader(file_type, directory_path):
+
+    loaders = {
+    'pdf': PyMuPDFLoader,
+    #'.xml': UnstructuredXMLLoader,
+    'csv': CSVLoader,
+    }
+
+    # # For some reason get encoidng error with default csv settings
+    # # Explicitly specify utf8 encoding
+    loader_kwargs = {'csv': {'encoding': 'utf-8', 'source_column': 'transcription'},
+                     'pdf': None}
+
     return DirectoryLoader(
         path=directory_path,
-        glob=f"**/*pdf",
-        loader_cls=PyMuPDFLoader,
+        glob=f"**/*{file_type}",
+        loader_kwargs = loader_kwargs[file_type],
+        loader_cls = loaders[file_type],
     )
 
 def main(args):
@@ -29,8 +43,8 @@ def main(args):
 
     # Get documents
     #https://github.com/langchain-ai/langchain/issues/9749
-    pdf_loader = create_directory_loader(path_fmt)
-    pages = pdf_loader.load_and_split()
+    loader = create_directory_loader(args.file_type, path_fmt)
+    pages = loader.load_and_split()
 
     # Split docs
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1500, chunk_overlap=0)
@@ -60,7 +74,8 @@ def main(args):
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--directory')
+    parser.add_argument('--directory', help='Directory of files')
+    parser.add_argument('--file_type', help="Specify 'csv' or 'pdf'")
     args = parser.parse_args()
     return args
 
