@@ -44,7 +44,7 @@ Refer [here](https://api.python.langchain.com/en/latest/api_reference.html#modul
 `python main.py --directory '<document_path>' --file_type 'csv'`
 
 ### Improvements
-There are many ideas for improvements.  We list them in order of priority:
+Here are some ideas for improvements.  We list them in order of priority:
 
 1. Performance improvement.
 Currently, a relatively involved question takes around 10 minutes. \
