@@ -1,6 +1,6 @@
-import sys
 import argparse
 from pathlib import Path
+import time
 
 import colorama
 from langchain.chains import ConversationalRetrievalChain
@@ -68,11 +68,16 @@ def main(args):
     while True:
         query = input(colorama.Fore.GREEN + "Input question: ")
 
+        start_time = time.time()
         response = qa({"question": query})
 
         print(colorama.Fore.BLUE + response['answer'])
         if args.file_type=='csv':
-            print(colorama.Fore.BLUE + [i.metadata['row'] for i in response['source_documents']])
+            rows = [i.metadata['row'] for i in response['source_documents']]
+            print(colorama.Fore.BLUE + f'Data source row numbers: {rows}')
+        end_time = time.time()
+        elapsed_time = end_time - start_time
+        print(colorama.Fore.YELLOW + f"Execution time: {elapsed_time:.3f} seconds")
 
 def parse_args():
     parser = argparse.ArgumentParser()
