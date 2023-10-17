@@ -18,9 +18,9 @@ We tested with the following data:
 1. Codebase uses pipenv as environment manager.  Install pipenv\
 `pip install pipenv`
 
-2. Navigate to the project directory. \
+2. Navigate to the project directory.
 
-3. Run command\
+3. Run command \
 `pipenv install --ignore-pipfile`
 
 You can also of course install the required packages with your preferred
