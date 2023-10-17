@@ -1,5 +1,5 @@
 # document-qna-chatbot
-## CLI-based chatbot using RAG for querying loaded documents using open-source tools.
+## Python chatbot for asking questions about loaded documents using open-source tools.
 
 ### Background
 Many tutorials on LangChain chatbots rely on using paid tokens from 3rd party providers.
@@ -7,6 +7,12 @@ Our aim is to construct a simple document question answering bot using open-sour
 tools.
 
 The model architecture is based on a ConversationalRetrievalChain with memory.
+
+For the testing, we tested used the following data:
+* csv - health record [data](https://www.kaggle.com/datasets/louiscia/transcription-samples-mtsamples) available from Kaggle \
+    Where the source column of text is 'Transcription'
+* pdf
+    Several academic papers on using machine learning for automatic code generation.
 
 ### How to run
 1. Codebase uses pipenv as environment manager.  Install pipenv\
