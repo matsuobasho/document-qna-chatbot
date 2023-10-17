@@ -54,7 +54,7 @@ def main(args):
     vectorstore = Chroma.from_documents(documents=all_splits, embedding=GPT4AllEmbeddings())
 
     # Create memory object
-    memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
+    memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True, input_key="question", output_key="answer")
 
     # Import LLM
     llm = GPT4All(
@@ -63,7 +63,7 @@ def main(args):
             )
 
     # Initialize conversation chain
-    qa = ConversationalRetrievalChain.from_llm(llm, vectorstore.as_retriever(), memory=memory)
+    qa = ConversationalRetrievalChain.from_llm(llm, vectorstore.as_retriever(), memory=memory, return_source_documents = True)
 
     while True:
         query = input(colorama.Fore.GREEN + "Input question: ")
@@ -71,6 +71,8 @@ def main(args):
         response = qa({"question": query})
 
         print(colorama.Fore.BLUE + response['answer'])
+        if args.file_type=='csv':
+            print(colorama.Fore.BLUE + [i.metadata['row'] for i in response['source_documents']])
 
 def parse_args():
     parser = argparse.ArgumentParser()
