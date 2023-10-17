@@ -1,5 +1,5 @@
 # document-qna-chatbot
-## Python chatbot for asking questions about loaded documents using open-source tools.
+## Chatbot for asking questions about loaded documents using open-source tools.  Uses Langchain.
 
 ### Background
 Many tutorials on LangChain chatbots rely on using paid tokens from 3rd party providers.
