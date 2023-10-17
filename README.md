@@ -8,7 +8,7 @@ tools.
 
 The model architecture is based on a ConversationalRetrievalChain with memory.
 
-For the testing, we tested used the following data:
+We tested with the following data:
 * csv - health record [data](https://www.kaggle.com/datasets/louiscia/transcription-samples-mtsamples) available from Kaggle \
     Where the source column of text is 'Transcription'
 * pdf
@@ -18,7 +18,7 @@ For the testing, we tested used the following data:
 1. Codebase uses pipenv as environment manager.  Install pipenv\
 `pip install pipenv`
 
-2. Navigate to the project directory.\
+2. Navigate to the project directory. \
 
 3. Run command\
 `pipenv install --ignore-pipfile`
@@ -34,14 +34,14 @@ In this code, we used [GPT4All](https://gpt4all.io/index.html). \
 If you use [other models](https://python.langchain.com/docs/guides/local_llms#llms), \
 you must change the llm and embeddings imports to the appropriate one: \
 `from langchain.llms import GPT4All` \
-`from langchain.embeddings import GPT4AllEmbeddings` \
+`from langchain.embeddings import GPT4AllEmbeddings`
 
 Refer [here](https://api.python.langchain.com/en/latest/api_reference.html#module-langchain.llms) for available LLMs.
 
 5. Create a `local_config.py` file with a MODEL_PATH variable pointing to your model.
 
 6. Navigate to your src directory and run: \
-`python main.py --directory <document_path> --file_type csv`
+`python main.py --directory '<document_path>' --file_type 'csv'`
 
 ### Improvements
 There are many ideas for improvements.  We list them in order of priority:
